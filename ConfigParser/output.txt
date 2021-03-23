@@ -1,0 +1,4 @@
+Pomiar			 srednia geom.
+POMIAR 1:		 -4.090942726996165
+Pomiar 2:		 -10.931055000262887
+Pomiar 3:		 14.997054977382847
