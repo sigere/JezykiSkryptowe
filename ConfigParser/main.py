@@ -1,6 +1,13 @@
 import configparser as CP
+from pathlib import Path
 
 if __name__ == '__main__':
+    
+    filename = 'input.rc'
+    if not Path(filename).is_file():
+        print(f"file '{filename}' not found")
+        exit()
+
     rd = CP.ConfigParser()
     rd.read('input.rc')
     result = []
