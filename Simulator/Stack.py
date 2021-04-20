@@ -1,6 +1,5 @@
 class Stack:
 
-    # Initialize stack
     def __init__(self, size):
         self.s = [None] * size  # list to store stack elements
         self.capacity = size  # maximum capacity of the stack
@@ -8,9 +7,7 @@ class Stack:
         self.count = 0  # current size of the stack
         self.last_pop = None
 
-    # Function to remove the last element
     def pop(self):
-        # check for stack underflow
         if self.is_empty():
             return False
         value = self.s[self.rear]
@@ -19,9 +16,7 @@ class Stack:
         self.last_pop = value
         return value
 
-    # Function to add an element to the stack
     def append(self, value):
-        # check for stack overflow
         if self.is_full():
             return False
 
@@ -30,21 +25,17 @@ class Stack:
         self.count = self.count + 1
         return True
 
-    # Function to return last element of the stack
     def peek(self):
         if self.is_empty():
             return False
         return self.s[self.rear]
 
-    # Function to return the size of the stack
     def size(self):
         return self.count
 
-    # Function to check if the stack is empty or not
     def is_empty(self):
         return self.size() == 0
 
-    # Function to check if the stack is full or not
     def is_full(self):
         return self.size() == self.capacity
 

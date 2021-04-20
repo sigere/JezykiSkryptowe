@@ -12,7 +12,7 @@ Queue: {item.print()}
         if item.last_pop:
             print(f'Popped: {item.last_pop}')
             item.last_pop = None
-        print_help()
+        print_help(item)
     elif type(item) == Stack:
         print(f'''  
 Stack Simulator
@@ -49,9 +49,14 @@ dictionary = {
     "quit": 0,
     "exit": 0
 }
+
 cls()
 a = str(input("Choose queue or stack> "))
-if a == 'queue':
+while a.lower() != 'stack' and a.lower() != 'queue':
+    print("Invalid command")
+    a = str(input('Type "queue" or "stack"'))
+
+if a.lower() == 'queue':
     print("The Queue Simulator")
     ok = False
     capacity = 0
@@ -71,6 +76,9 @@ if a == 'queue':
         choice = dictionary.get(input("> ").lower(), -1)
         if choice == 1:
             value = input("value> ")
+            while not len(value) > 0:
+                print("Value cannot be empty.")
+                value = input("value> ")
             if not q.append(value):
                 print("Queue is full")
         elif choice == 2:
@@ -89,7 +97,7 @@ if a == 'queue':
             print("The queue is empty")
         else:
             print("The queue is not empty")
-if a == 'stack':
+if a.lower() == 'stack':
     print("The Stack Simulator")
     ok = False
     capacity = 0
@@ -109,6 +117,9 @@ if a == 'stack':
         choice = dictionary.get(input("> ").lower(), -1)
         if choice == 1:
             value = input("value> ")
+            while not len(value) > 0:
+                print("Value cannot be empty.")
+                value = input("value> ")
             if not s.append(value):
                 print("Stack is full")
         elif choice == 2:
@@ -121,7 +132,7 @@ if a == 'stack':
             break
         else:
             print("Invalid command")
-            print_help()
+            print_help(s)
         s.print()
         if s.is_empty():
             print("The stack is empty")

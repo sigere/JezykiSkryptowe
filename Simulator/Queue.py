@@ -1,6 +1,5 @@
 class Queue:
 
-    # Initialize queue
     def __init__(self, size):
         self.q = [None] * size  # list to store queue elements
         self.capacity = size  # maximum capacity of the queue
@@ -9,9 +8,7 @@ class Queue:
         self.count = 0  # current size of the queue
         self.last_pop = None
 
-    # Function to dequeue the front element
     def pop(self):
-        # check for queue underflow
         if self.is_empty():
             return False
         value = self.q[self.front]
@@ -20,9 +17,7 @@ class Queue:
         self.last_pop = value
         return value
 
-    # Function to add an element to the queue
     def append(self, value):
-        # check for queue overflow
         if self.is_full():
             return False
 
@@ -31,21 +26,17 @@ class Queue:
         self.count = self.count + 1
         return True
 
-    # Function to return the front element of the queue
     def peek(self):
         if self.is_empty():
             return False
         return self.q[self.front]
 
-    # Function to return the size of the queue
     def size(self):
         return self.count
 
-    # Function to check if the queue is empty or not
     def is_empty(self):
         return self.size() == 0
 
-    # Function to check if the queue is full or not
     def is_full(self):
         return self.size() == self.capacity
 
